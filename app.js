@@ -8,7 +8,9 @@ const cors = require('cors');
 const fs = require('fs');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var userLoginRouter = require('./routes/user/login');
+var userSignUpRouter = require('./routes/user/add');
+
 var fileListRouter = require('./routes/file/fileList');
 var folderListRouter = require('./routes/file/folderList');
 var fileReadRouter = require('./routes/file/read');
@@ -45,7 +47,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({}));
 
 app.use('/api/', indexRouter);
-app.use('/api/users', usersRouter);
+
+app.use('/api/user/login', userLoginRouter);
+app.use('/api/user/signup', userSignUpRouter);
+
 app.use('/api/file/list', fileListRouter);
 app.use('/api/file/folder', folderListRouter);
 app.use('/api/file/read', fileReadRouter);

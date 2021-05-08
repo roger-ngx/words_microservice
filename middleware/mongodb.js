@@ -1,6 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const MONGO_DB_URL = 'mongodb+srv://thanh:thanh@cluster0.61tgr.mongodb.net/words?retryWrites=true&w=majority';
+// const MONGO_DB_URL = 'mongodb+srv://thanh:thanh@cluster0.61tgr.mongodb.net/words?retryWrites=true&w=majority';
+const MONGO_DB_URL = 'mongodb://udp_db:27017/words';
 
 const connectDB = handler => async (req, res) => {
     if(mongoose.connections[0].readyState){
@@ -16,4 +17,4 @@ const connectDB = handler => async (req, res) => {
     return handler(req, res);
 };
 
-export default connectDB;
+module.exports = connectDB;
