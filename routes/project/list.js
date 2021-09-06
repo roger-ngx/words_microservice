@@ -16,20 +16,11 @@ const handler = async(req, res) => {
         return res.json({message: 'projectName is empty', err: 1});
     }
 
-    const projectDoc = await Project.findOne({uid, projectName}).exec();
-    if(projectDoc){
-        return res.json({message: 'project already exists', err: 2});
-    } else {
-        Project.create({uid, name: projectName}, (err, project) => {
-            if(err){
-                return res.json({message: err, err: 3});
-            }
+    const projects = await Project.find({uid}).exec();
 
-            return res.json({message: JSON.stringify(project), err: 0});
-        });
-    }
+    console.log(projects);
 };
 
-router.post('/', connectDB(handler));
+router.post('/list', connectDB(handler));
 
 module.exports = router;

@@ -14,8 +14,9 @@ const handler = async(req, res) => {
     }
 
     const userDoc = await User.findOne({name: username}).exec();
+    // console.log(userDoc);
     if(userDoc){
-        return res.json({message: 'username exists', err: 0});
+        return res.json({message: 'username exists', uid: userDoc._id, err: 0});
     } else {
         return res.json({message: "username doesn't exists", err: 2});
     }
