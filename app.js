@@ -12,6 +12,7 @@ var userLoginRouter = require('./routes/user/login');
 var userSignUpRouter = require('./routes/user/add');
 
 var addProjectRouter = require('./routes/project/add');
+var listProjectRouter = require('./routes/project/list');
 
 var fileListRouter = require('./routes/file/fileList');
 var folderListRouter = require('./routes/file/folderList');
@@ -54,6 +55,7 @@ app.use('/api/user/login', userLoginRouter);
 app.use('/api/user/signup', userSignUpRouter);
 
 app.use('/api/project/add', addProjectRouter);
+app.use('/api/project/list', listProjectRouter);
 
 app.use('/api/file/list', fileListRouter);
 app.use('/api/file/folder', folderListRouter);
