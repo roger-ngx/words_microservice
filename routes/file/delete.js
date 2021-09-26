@@ -10,9 +10,9 @@ router.post('/', async (req, res) => {
     console.log(req.body);
 
     try{
-        const dir = `${path.resolve('./')}/public/uploaded/${username}/${projectName}`;
-        if(fs.existsSync(dir)){
-            fs.unlinkSync(`${dir}/${fileName}`);
+        const filePath = `${path.resolve('./')}/public/uploaded/${username}/${projectName}/${fileName}`;
+        if(fs.existsSync(filePath)){
+            fs.unlinkSync(filePath);
         }
         return res.json({projectName, fileName, err: 0});
 
