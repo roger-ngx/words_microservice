@@ -12,12 +12,14 @@ var userLoginRouter = require('./routes/user/login');
 var userSignUpRouter = require('./routes/user/add');
 
 var addProjectRouter = require('./routes/project/add');
+var deleteProjectRouter = require('./routes/project/delete');
 var listProjectRouter = require('./routes/project/list');
 
 var fileListRouter = require('./routes/file/fileList');
 var folderListRouter = require('./routes/file/folderList');
 var fileReadRouter = require('./routes/file/read');
 var fileUploadRouter = require('./routes/file/upload');
+var fileDeleteRouter = require('./routes/file/delete');
 
 var app = express();
 
@@ -56,11 +58,13 @@ app.use('/api/user/signup', userSignUpRouter);
 
 app.use('/api/project/add', addProjectRouter);
 app.use('/api/project/list', listProjectRouter);
+app.use('/api/project/delete', deleteProjectRouter);
 
 app.use('/api/file/list', fileListRouter);
 app.use('/api/file/folder', folderListRouter);
 app.use('/api/file/read', fileReadRouter);
 app.use('/api/file/upload', fileUploadRouter);
+app.use('/api/file/delete', fileDeleteRouter);
 
 
 // catch 404 and forward to error handler
