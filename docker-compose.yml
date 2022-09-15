@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+  words:
+    image: words
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8053:8053
+        8054:8054
